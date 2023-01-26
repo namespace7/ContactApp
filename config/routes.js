@@ -33,7 +33,8 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  'POST /contact' : 'ContactlistController.create'
-
-
+  'POST /contact' : 'ContactlistController.create',
+  'GET /contact' : 'ContactlistController.find',
+  'DELETE /contact/:id' : 'ContactlistController.delete',
+  
 };

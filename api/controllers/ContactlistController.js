@@ -6,7 +6,6 @@
  */
 
 
-
 module.exports = {
 
     async create(req, res) {
@@ -28,18 +27,34 @@ module.exports = {
         }
 
     },
-    find(req, res) {
+
+
+    async find(req, res) {
+        try {
+            const contactlist = await Contactlist.find();
+            return res.ok(contactlist);
+
+        }
+        catch (err) {
+            return res.serverError(err);
+        }
+    },
+
+
+    async delete(req, res) {
+        try {
+            const contact = await Contactlist.destroy({
+                id: req.params.id
+            });
+            return res.ok(contact);
+
+        }
+        catch (err){
+            return res.serverError(err);
+        }
 
     },
-    findName(req, res) {
-
-    },
-    findPhone(req, res) {
-
-    },
-    delete(req, res) {
-
-    },
+    
 
 
 
